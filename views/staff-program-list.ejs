@@ -1,0 +1,28 @@
+<section class="bg-[#EEE] py-8 w-full h-full">
+    <div class="w-[80%] m-auto" id="programs">
+        <h1 class="uppercase text-4xl font-bold text-blue-900 text-center p-5 border-b-2 border-b-yellow-400">
+            dolphin cove's event list
+        </h1>
+    
+        <div class="flex justify-end my-4">
+            <a href="/add-program" class="p-4 text-cyan-600 font-bold border-4 border-cyan-600 block hover:text-white hover:bg-cyan-600">
+                Add Event
+            </a>
+        </div>
+        <!-- /////////////////////////////////////////////////// -->
+        <div class="flex gap-4 justify-center my-5 py-5">
+           <% events.forEach( event => { %>
+           <a href="program/<%= event.id %>">
+            <div class="w-[400px]">
+                <img src="<%= event.cover %> " alt="" class="w-full">
+                <div class="bg bg-gradient-to-b from-cyan-500 to-blue-400 text-center text-white">
+                    <p class="capitalize text-xl font-bold pt-2"><%= event.title %> </p>
+                    <p class="p-2 font-medium"><%= event.description %> </p>
+                </div>
+            </div>
+           </a>
+            <% }) %>  
+        </div>
+        <!-- ////////////////////////////////////////////////////// -->
+    </div>
+</section>

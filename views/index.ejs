@@ -1,0 +1,117 @@
+<div class="h-[80vh] w-full bg-[url('https://cdn.pixabay.com/photo/2015/12/21/18/12/dolphin-1102987_960_720.jpg')] bg-no-repeat bg-cover bg-center flex items-center relative">
+    <div class="pl-32 text-white flex items-center bg-gradient-to-r from-[#02f5f5cc] to-[rgba(0,0,0,0)] h-full w-full">
+       <div>
+        <img src="https://www.dolphincoveja.com/Content/src/logo.png" alt="">
+        <br>
+        <h1 class="text-5xl font-bold">
+            Live the experience of swimming
+              <br>  with dolphins in the natural 
+            <br>    Caribbean Sea.
+        </h1>
+       </div>
+    </div>
+</div>
+
+<section>
+    <div class="p-5 bg-blue-900 text-center text-white">
+        <h1 class="text-5xl font-medium py-2">Welcome to Dolphin Cove Jamaica</h1>
+        <h3 class="text-2xl"><i>Part of the Dolphin Discovery Group, the largest dolphin company in the world</i></h3>
+    </div>
+
+    <div class="w-[80%] m-auto text-center text-xl">
+        <p class="py-5 my-1">
+            Did you know that swimming with dolphins is considered one of the top 10 bucket list items? When you come to Dolphin Cove Jamaica you not only get a chance to live this dream; you have the opportunity to knock off a few more, like ride a camel and interact with stingrays. Here a place where you come for the day but remember for a lifetime.
+        </p>
+
+        <p class="py-5 my-1">
+            One of the many things that make Dolphin Cove Jamaica special is that you can live the experience of swimming with dolphins in the natural Caribbean Sea. Here you have the opportunity to enjoy the company of different fish, rays, and other forms of natural sea life. Dolphin Cove Jamaica is the place to spend the day enjoying lots of fun activities. There is truly something for everyone!
+        </p>
+
+        <p class="py-5 my-1">
+            Dolphin Cove Jamaica is full of natural wonders and beauty you gotta see for yourself! In Dolphin Cove Ocho Rios you’ll enjoy strolling around in the Jungle Trail, where you will notice many different wild animals, plants, and trees. At Dolphin Cove Jamaica we respect the environment of all the species, here you will live the most natural experience you’ve ever had.
+        </p>
+    </div>
+</section>
+
+<section class="w-[80%] m-auto" id="programs">
+    <h1 class="text-5xl font-bold text-blue-900 text-center p-5 border-b-2 border-b-yellow-400">
+        DISCOVER OUR SWIM WITH DOLPHINS PROGRAMS
+    </h1>
+
+    <!-- /////////////////////////////////////////////////// -->
+    <div class="flex gap-4 justify-center my-5 py-5">
+       <% events.forEach( event => { %>
+       <a href="program/<%= event.id %>">
+        <div class="w-[400px]">
+            <img src="<%= event.cover %> " alt="" class="w-full">
+            <div class="bg bg-gradient-to-b from-cyan-500 to-blue-400 text-center text-white">
+                <p class="capitalize text-xl font-bold pt-2"><%= event.title %> </p>
+                <p class="p-2 font-medium"><%= event.description %> </p>
+            </div>
+        </div>
+       </a>
+        <% }) %>  
+    </div>
+    <!-- ////////////////////////////////////////////////////// -->
+</section>
+
+<section class="my-5 bg-[#EEE]">
+    <div class="w-[80%] m-auto py-10">
+        <div>
+            <h3 class="text-xl font-bold text-center py-5">Dolphin Cove Jamaica is the place to spend the day enjoying lots of fun activities here there is something for everyone. The entrance fee includes full use of the following activities:</h3>
+        </div>
+    
+        <div>
+            <div class="flex justify-evenly">
+                <ul>
+                    <li class="py-2 text-gray-600">
+                        <p>Swimming with sharks and stingrays</p>
+                    </li>
+                    <li class="py-2 text-gray-600">
+                        <p>Watch our hilarious Jamaica Shark Show</p>
+                    </li>
+                    <li class="py-2 text-gray-600">
+                        <p>Interact with exotic birds, snakes and iguanas on the Jungle Trail walk</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="py-2 text-gray-600">
+                        <p>Pet the camels</p>
+                    </li>
+                    <li class="py-2 text-gray-600">
+                        <p>Relax on our glistening white sandy beaches</p>
+                    </li>
+                </ul>
+            </div>
+           <h3 class="text-2xl font-bold text-center py-5">Activities vary according to each day</h3>
+        </div>
+    </div>
+</section>
+
+<section class="w-[80%] m-auto py-5">
+    <div>
+        <img src="https://www.dolphincoveja.com/Content/media/map-home.png" alt="">
+    </div>
+
+    <h1 class="text-3xl font-meduim text-blue-900 text-center p-5 border-b-2 border-b-yellow-400 uppercase">
+        The Caribbean's Number 1 Attraction
+    </h1>
+
+    <p class="py-5 text-center text-xl">
+       <i>
+        Dolphin Cove Jamaica has been named the Caribbean's Leading Adventure Excursions Operator for two consecutive years by the World Travel Awards. These awards are the foundation to Dolphin Cove Jamaica's position as a world leader in adventure excursions.
+       </i>
+    </p>
+
+    <div class="flex justify-evenly py-5">
+        <div>
+            <img src="https://www.dolphincoveja.com/Content/media/world-travel-2012.png" alt="">
+        </div>
+        <div>
+            <img src="https://www.dolphincoveja.com/Content/media/world-travel-2011.png" alt="">
+        </div>
+        <div>
+            <img src="https://www.dolphincoveja.com/Content/media/world-travel-2013.png" alt="">
+        </div>
+    </div>
+</section>

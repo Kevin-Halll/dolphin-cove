@@ -1,0 +1,89 @@
+<%- include("./partials/imports.ejs") %>
+
+
+<section class="flex w-full justify-center items-center h-full relative">
+    <div class="absolute top-20">
+        <% if (messages.error){ %>
+                <p class="flash w-fit shadow-sm text-2xl text-red-500"><%- messages.error %> </p>
+        <% } %> 
+    </div>
+    <div>
+        <div class="w-[80%] m-auto">
+            <a href="javascript:history.back()" class="text-xl text-blue-500 underline py-2 my-5">Go Back</a>
+        </div>
+        <div class="w-[80%] rounded-md shadow-lg border grid grid-cols-2 m-auto my-16">
+            <div class="magic ">
+                <div class="flex justify-center">
+                    <img src="https://www.dolphincoveja.com/Content/src/logo.png" alt="" class="p-10"/>
+                </div>
+    
+                <h1 class="uppercase text-5xl font-extrabold text-center text-white py-5">
+                    official's login portal
+                </h1>
+            </div>
+    
+            <div>
+                <form action="/login/user" method="POST" class="p-10">
+                    <div class="text-center text-8xl text-cyan-600">
+                        <i class="fa-solid fa-user-gear"></i>
+                    </div>
+                    <div class="text-xl">
+                        <label for="email" class="text-cyan-600 font-bold">Email</label>
+                        <input type="email" name="email" id="email" class="w-full p-1 border outline-none" placeholder="example@domain.com">
+                    </div>
+    
+                    <div class="text-xl">
+                        <label for="password" class="text-cyan-600 font-bold">Password</label>
+                        <input type="password" name="password" id="password" class="w-full p-1 border outline-none" placeholder="********">
+                    </div>
+    
+                    <div class="text-center mt-10 text-xl">
+                        <button type="submit" class="rounded-md text-white font-bold py-3 px-8 magic">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .magic {
+      background-image: linear-gradient(
+          306deg,
+          rgba(54, 54, 54, 0.05) 0%,
+          rgba(54, 54, 54, 0.05) 33.333%,
+          rgba(85, 85, 85, 0.05) 33.333%,
+          rgba(85, 85, 85, 0.05) 66.666%,
+          rgba(255, 255, 255, 0.05) 66.666%,
+          rgba(255, 255, 255, 0.05) 99.999%
+        ),
+        linear-gradient(
+          353deg,
+          rgba(81, 81, 81, 0.05) 0%,
+          rgba(81, 81, 81, 0.05) 33.333%,
+          rgba(238, 238, 238, 0.05) 33.333%,
+          rgba(238, 238, 238, 0.05) 66.666%,
+          rgba(32, 32, 32, 0.05) 66.666%,
+          rgba(32, 32, 32, 0.05) 99.999%
+        ),
+        linear-gradient(
+          140deg,
+          rgba(192, 192, 192, 0.05) 0%,
+          rgba(192, 192, 192, 0.05) 33.333%,
+          rgba(109, 109, 109, 0.05) 33.333%,
+          rgba(109, 109, 109, 0.05) 66.666%,
+          rgba(30, 30, 30, 0.05) 66.666%,
+          rgba(30, 30, 30, 0.05) 99.999%
+        ),
+        linear-gradient(
+          189deg,
+          rgba(77, 77, 77, 0.05) 0%,
+          rgba(77, 77, 77, 0.05) 33.333%,
+          rgba(55, 55, 55, 0.05) 33.333%,
+          rgba(55, 55, 55, 0.05) 66.666%,
+          rgba(145, 145, 145, 0.05) 66.666%,
+          rgba(145, 145, 145, 0.05) 99.999%
+        ),
+        linear-gradient(90deg, rgb(9, 201, 186), rgb(18, 131, 221));
+    }
+  </style>

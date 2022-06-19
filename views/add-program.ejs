@@ -1,0 +1,43 @@
+<section class="bg-[#eee] h-full flex">
+    <div class="w-[40%] m-auto p-5 bg-white rounded-lg mt-10">
+        <h1 class="text-4xl font-bold text-center text-white magic p-3 rounded-lg">Add New Event Package</h1>
+        <form action="add/program" method="POST">
+            <div class="text-xl my-3">
+                <label for="program" class="text-cyan-600 font-bold">Event Name</label>
+                <input type="text" name="program" id="program" class="w-full p-1 border outline-none" >
+            </div>
+            <div class="text-xl my-3">
+                <label for="title" class="text-cyan-600 font-bold">Tag Line</label>
+                <input type="text" name="title" id="title" class="w-full p-1 border outline-none">
+            </div>
+            <div class="text-xl my-3">
+                <label for="description" class="text-cyan-600 font-bold">Description</label>
+                <textarea name="description" id="description" cols="30" rows="3" placeholder="Event details..." class="w-full outline-none border p-2"></textarea>
+            </div>
+
+            <div class="flex gap-5">
+                <div class="text-xl my-3">
+                    <label for="cost" class="text-cyan-600 font-bold">Set Price</label>
+                    <input type="number" name="cost" id="cost" min="0" class="w-full p-1 border outline-none">
+                </div>
+                <div class="text-xl my-3">
+                    <label for="title" class="text-cyan-600 font-bold">Choose Schedule</label>
+                    <select name="time_schedule" id="time_schedule" class="w-full p-1 border outline-none">
+                        <option value="" hidden>--- Select Schedule ---</option>
+                        <option value="8:30am - 10:30am">8:30am - 10:30am</option>
+                        <option value="10:30am - 1:00pm">10:30am - 1:00pm</option>
+                        <option value="1:00pm - 4pm">1:00pm - 4pm</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="text-xl my-3">
+                <label for="password" class="text-cyan-600 font-bold">Event Cover</label>
+                <input type="file" name="cover" id="cover" accept="image/*" class="w-full p-1 border outline-none">
+            </div>
+            <div class="text-center mt-10 text-xl">
+                <button type="submit" class="rounded-md text-white font-bold py-3 px-8 magic">Add Event</button>
+            </div>
+        </form>
+    </div>
+</section>

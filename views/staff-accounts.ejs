@@ -1,0 +1,56 @@
+<section class="flex justify-center w-full">
+    <section>
+        <h1 class="text-3xl font-bold text-blue-900 text-center p-5 my-5 border-b-2 border-b-yellow-400 uppercase">
+            Account And Payments
+        </h1>
+        
+        <table class="border p-3 text-center">
+            <thead class="bg-cyan-600 text-white">
+              <th class="px-5 py-3 border">Payment ID</th>
+              <th class="px-5 py-3 border">Booking ID</th>
+              <th class="px-5 py-3 border">Payment Method</th>
+              <th class="px-5 py-3 border">Payment Total</th>
+              <th class="px-5 py-3 border">Bill Date</th>
+              <th class="px-5 py-3 border">Payment Status</th>
+            </thead>
+            </thead>
+      
+            <tbody>
+              <% accounts.reverse().forEach(pay => { %>
+              <tr class="hover:shadow-md hover:shadow-cyan-400">
+                <td class="px-5 py-3 border"><%= pay.pay_id %></td>
+                <td class="px-5 py-3 border"><%= pay.booking_id %></td>
+                <td class="px-5 py-3 border">
+                    <% if(pay.payment_method_id == 1){ %>
+                        <p>Cash</p>
+                    <% } %>  
+                    <% if(pay.payment_method_id == 2){ %>
+                        <p>Cheque</p>
+                    <% } %>  
+                    <% if(pay.payment_method_id == 3){ %>
+                        <p>Card</p>
+                    <% } %>  
+                    <% if(pay.payment_method_id == 4){ %>
+                        <p>Wire Fransfer</p>
+                    <% } %>  
+                    <% if(pay.payment_method_id == 5){ %>
+                        <p>On Credit</p>
+                    <% } %>  
+                </td>
+                <td class="px-5 py-3 border">$<%= pay.payment_total %> USD</td>
+                <td class="px-5 py-3 border"><%= pay.payment_dt %></td>
+                <td class="px-5 py-3 border">
+                    <% if(pay.payment_status == 1){ %><p class="font-bold text-green-500">PAID</p><% } %>  
+                    <% if(pay.payment_status == 0){ %><p class="font-bold text-red-500">ON CREDIT</p><% } %>  
+                </td>
+                
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+
+          <div class="p-5 bg-[#EEE] font-thin text-center my-10">
+            <p>Copyright @ Dolphin Cove JA 2022</p>
+          </div>
+    </section>
+</section>

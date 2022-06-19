@@ -1,0 +1,180 @@
+<section class="py-10 bg-[#EEE] h-full w-full">
+
+    <div class="flex gap-5 justify-center w-[100%] m-auto">
+
+        <div class="w-[400px]">
+            <img src="<%= program.cover %> " alt="" class="w-full">
+            <div class="bg bg-gradient-to-b from-cyan-500 to-blue-400 text-center text-white">
+                <p class="capitalize text-xl font-bold pt-2"><%= program.title %> </p>
+                <p class="p-2 font-medium"><%= program.description %> </p>
+            </div>
+        </div>
+
+        <div class="w-[400px]">
+            <form action="make/booking" method="POST" class="bg-white">
+                <div class="text-center bg-cyan-500 rounded-t-md p-4">
+                    <h1 class="uppercase font-bold text-white text-xl">Make your reservation</h1>
+                </div>
+                <div class="border px-4">
+                    <h1 class="uppercase font-bold text-cyan-600 text-xl text-center py-2"><%= program.program %> </h1>
+                    <input type="text" name="program_id" id="program_id" value="<%= program.id %>" hidden>
+                    <input type="text" name="user_id" id="user_id" value="<%=user_id %>" hidden>
+    
+                    <div class="grid grid-cols-2 gap-4 my-2" id="checkout2">
+                        <div>
+                            <label for="fname" class="text-cyan-600 font-bold">First Name</label>
+                            <input type="text" name="fname" id="fname" class="w-full p-1 border outline-none" placeholder="First Name">
+                        </div>
+                        <div>
+                            <label for="lname" class="text-cyan-600 font-bold">Last Name</label>
+                            <input type="text" name="lname" id="fname" class="w-full p-1 border outline-none" placeholder="Last Name">
+                        </div>
+                        <div class="col-span-2">
+                            <label for="participant_num" class="text-cyan-600 font-bold">Participants <i class="fa-solid fa-person-circle-plus"></i></label> <br>
+                            <input type="number" name="participant_num" id="participant_num" min="1" value="1" class="w-full p-1 border outline-none text-center">
+                        </div>
+                        
+                        <div class="col-span-2">
+                            <label for="participant_num" class="text-cyan-600 font-bold">Place of Commute <i class="fa-solid fa-hotel"></i></label> <br>
+                            <select name="hotel" id="hotel" class="w-full p-1 border outline-none">
+                                <% hotels.forEach(hotel => { %>
+                                    <option value="<%=hotel.id %>"><%=hotel.hotel %> </option>
+                                <% }) %> 
+                            </select>
+                        </div>
+
+                        <div class="col-span-2">
+                            <label for="appointment_dt" class="text-cyan-600 font-bold">Appointment Date</label>
+                            <input type="date" name="appointment_dt" id="appointment_dt" class="w-full p-1 border outline-none">
+                        </div>
+                        <div class="col-span-2 hidden">
+                            <input type="date" name="booked_dt" id="booked_dt" class="w-full p-1 border outline-none" value="<%= new Date().toJSON().slice(0, 10).split('-').join('-') %>">
+                        </div>
+
+                        <div class="col-span-2 mt-1">
+                            <label for="booking_cost" class="text-cyan-600 font-bold">Booking Cost</label>
+                            <div class="text-white font-bold text-xl border my-2 p-4 bg-cyan-500 text-center">
+                                $<span id="booking_cost"><%=program.cost %></span> USD
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- ////////////////////////////////////////// -->
+                    <div class="hidden" id="checkout">
+                        <div class="border flex justify-between p-2 my-2">
+                            <label for="" class="text-cyan-600 font-bold">Appointment Date:</label>
+                            <div>
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <span id="appnt_date">date</span>
+                            </div>
+                        </div>
+                        <div class="border flex justify-between p-2 my-2">
+                            <label for="" class="text-cyan-600 font-bold">Appointment Time:</label>
+                            <div>
+                                <i class="fa-solid fa-clock"></i>
+                                <span id="appnt_time"><%=program.time_schedule %> </span>
+                            </div>
+                        </div>
+                        <div class="border flex justify-between p-2 my-2">
+                            <label for="" class="text-cyan-600 font-bold">Participants:</label>
+                            <div>
+                                <i class="fa-solid fa-person-circle-plus"></i>
+                                <span id="ppl">1</span>
+                            </div>
+                        </div>
+                        <div class="border flex justify-between p-2 my-2">
+                            <label for="" class="text-cyan-600 font-bold">Price:</label>
+                            <div>
+                                <i class="fa-solid fa-dollar-sign"></i><span id="appnt_time"><%=program.cost %> USD</span>
+                            </div>
+                        </div>
+                        <div class="border flex justify-between p-2 my-2">
+                            <label for="" class="text-cyan-600 font-bold">Grand Total:</label>
+                            <div>
+                                <i class="fa-solid fa-dollar-sign"></i><span id="g_total"><%=program.cost %> USD </span>
+                            </div>
+                        </div>
+
+
+
+                        <div class="border p-2 my-2 hidden">
+                           <input type="text" name="g_total2" id="g_total2">
+                           <input type="number" name="pay_stats" id="pay_stats" min="0" max="1" value="1">
+                        </div>
+
+
+
+                        <div class="border flex justify-between p-2 my-2">
+                            <label for="" class="text-cyan-600 font-bold">Payment Method</label>
+                            <select name="method" id="method" class="text-green-500 font-bold">
+                                <% methods.forEach(method => {%>
+                                    <option value="<%=method.id %> "><%=method.method %> </option>
+                                <% }) %> 
+                            </select>
+                        </div>
+
+                        <div class="text-center py-5 mt-6">
+                            <button class="p-4 bg-cyan-600 text-white font-bold w-full flex items-center justify-center gap-3">
+                                CHECK OUT <i class="fa-solid fa-hand-holding-dollar"></i>
+                            </button>
+                        </div>                        
+                    </div>
+                    <!-- ///////////////////////////////////////////// -->
+                </div>
+            </form>
+            <div class="text-center py-5">
+                <button 
+                onclick="eventForm()"
+                id="eventBtn" class="p-4 bg-cyan-600 text-white font-bold w-full flex items-center justify-center gap-3">
+                    Choose this Program <i class="fa-solid fa-arrow-right text-xl"></i>
+                </button>
+            </div>
+            <input type="numbers" name="" id="bcost" value="<%=program.cost %>" hidden>
+        </div>
+    
+    </div>
+ 
+</section>
+
+<script>
+    let participants = document.querySelector('#participant_num')
+    let booking_cost = document.querySelector('#booking_cost')
+    let bcost = document.querySelector('#bcost')
+    let g_total = document.querySelector('#g_total')
+    let appointment_dt = document.querySelector('#appointment_dt')
+    let appnt_date = document.querySelector('#appnt_date')
+    let ppl = document.querySelector('#ppl')
+    let g_total2 = document.querySelector('#g_total2')
+
+    let checkout = document.querySelector('#checkout')
+    let checkout2 = document.querySelector('#checkout2')
+    let eventBtn = document.querySelector('#eventBtn')
+    let method = document.querySelector('#method')
+    let pay_stats = document.querySelector('#pay_stats')
+
+
+
+    participants.onchange = () => {
+        p_num = participants.value
+        booking_cost.innerText = p_num * bcost.value
+        g_total.innerText = p_num * bcost.value
+        g_total2.value = p_num * bcost.value
+        ppl.innerText = participants.value
+    }
+
+    appointment_dt.onchange = () => {
+        appnt_date.innerText = new Date(appointment_dt.value).toDateString()
+    }
+
+    method.onchange = () => {
+        if(method.value == 5) {
+            pay_stats.value = 0
+        }
+    }
+    
+    function eventForm() {
+        checkout.classList.toggle('hidden');
+        checkout2.classList.toggle('hidden');
+    }
+</script>

@@ -1,0 +1,28 @@
+<section class="bg-[#eee] h-full flex">
+    <div class="w-[40%] m-auto p-5 bg-white rounded-lg mt-20">
+        <h1 class="text-4xl font-bold text-center text-white magic p-3 rounded-lg">Tour Company Info Log</h1>
+        <form action="add/company" method="POST">
+            <div class="text-xl my-3">
+                <label for="company_nm" class="text-cyan-600 font-bold">Company Name</label>
+                <input type="text" name="company_nm" id="company_nm" class="w-full p-1 border outline-none" placeholder="e.g. Dolphin Tours">
+            </div>
+            <div class="text-xl my-3">
+                <label for="phone_num" class="text-cyan-600 font-bold">Contact Number</label>
+                <input type="tel" name="phone_num" id="phone_num" class="w-full p-1 border outline-none" placeholder="000-000-0000">
+            </div>
+            <div class="text-xl my-3">
+                <label for="email" class="text-cyan-600 font-bold">Email</label>
+                <input type="email" name="email" id="email" class="w-full p-1 border outline-none" placeholder="example@domain.com">
+            </div>
+
+            <div class="text-xl my-3">
+                <label for="password" class="text-cyan-600 font-bold">Password</label>
+                <input type="password" name="password" id="password" class="w-full p-1 border outline-none" placeholder="********">
+            </div>
+            <input type="number" name="role_id" id="role_id" value="2" hidden>
+            <div class="text-center mt-10 text-xl">
+                <button type="submit" class="rounded-md text-white font-bold py-3 px-8 magic">Add Company</button>
+            </div>
+        </form>
+    </div>
+</section>

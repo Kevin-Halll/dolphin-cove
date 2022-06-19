@@ -1,0 +1,124 @@
+<section class="w-full">
+    <h1
+      class="text-4xl font-bold text-blue-900 text-center p-5 border-b-2 border-b-yellow-400 uppercase w-[70%] m-auto mt-10"
+    >
+      thank you for choosing dolphin cove
+    </h1>
+    <div class="w-[30%] m-auto my-10 shadow-lg bg-[#fEf] pb-5">
+      <div class="magic flex justify-center">
+        <img
+          src="https://www.dolphincoveja.com/Content/src/logo.png"
+          alt=""
+          class="p-10"
+        />
+      </div>
+  
+      <div class="px-10">
+        <h1
+          class="text-3xl font-bold text-center py-2 border-b-4 border-b-cyan-600 text-green-600"
+        >
+          Ticket Voucher# <%=voucher.booking_id %> 
+        </h1>
+      </div>
+  
+      <div class="px-10">
+        <div class="mt-5">
+          <h3 class="text-3xl font-bold text-cyan-600"><%=time.program %> </h3>
+        </div>
+  
+        <div class="text-green-600">
+          <div class="flex gap-2 my-3 border-b-2 border-b-cyan-500 w-fit pr-5 font-medium text-xl">
+              <p class="py-2"><i><%=voucher.fname %></i> </p>
+              <p class="py-2"><i><%=voucher.lname %></i> </p>
+            </div>
+      
+            <div class="border flex justify-between p-2 my-2">
+              <i class="fa-solid fa-calendar-days"></i>
+              <% let appTime = new Date(voucher.appointment_dt).toDateString() %> 
+              <span id="appnt_date"><%=appTime %> </span>
+            </div>
+            <div class="border flex justify-between p-2 my-2">
+              <i class="fa-solid fa-clock"></i>
+              <span id="appnt_time"><%=time.time_schedule %> </span>
+            </div>
+            <div class="border flex justify-between p-2 my-2">
+              <i class="fa-solid fa-person-circle-plus"></i>
+              <span id="ppl"><%=voucher.participant_num %> </span>
+            </div>
+            <div class="border flex justify-between p-2 my-2">
+              <i class="fa-solid fa-coins"></i>
+              <div>
+                <i class="fa-solid fa-dollar-sign"></i
+                ><span id="appnt_time"><%=time.cost %> USD</span>
+              </div>
+            </div>
+            <div class="border flex justify-between p-2 my-2">
+              <i class="fa-solid fa-money-check-dollar"></i>
+              <div>
+                <i class="fa-solid fa-dollar-sign"></i
+                ><span id="g_total"><%=voucher.payment_total %>  USD </span>
+              </div>
+            </div>
+      
+        </div>
+  
+        <div class="magic rounded-lg my-8 shadow-lg">
+          <h1
+            class="uppercase text-5xl font-extrabold text-center text-white p-4"
+          >
+            Thank You
+          </h1>
+        </div>
+      </div>
+    </div>
+  
+    <div class="text-center text-xl p-5 bg-green-500 text-white my-10 w-[70%] m-auto">
+      <p>
+        <b>Note:</b> Please present voucher on arrival to enter and so you can be
+        accommodated for your program
+      </p>
+    </div>
+  </section>
+  
+  <style>
+    .magic {
+      background-image: linear-gradient(
+          306deg,
+          rgba(54, 54, 54, 0.05) 0%,
+          rgba(54, 54, 54, 0.05) 33.333%,
+          rgba(85, 85, 85, 0.05) 33.333%,
+          rgba(85, 85, 85, 0.05) 66.666%,
+          rgba(255, 255, 255, 0.05) 66.666%,
+          rgba(255, 255, 255, 0.05) 99.999%
+        ),
+        linear-gradient(
+          353deg,
+          rgba(81, 81, 81, 0.05) 0%,
+          rgba(81, 81, 81, 0.05) 33.333%,
+          rgba(238, 238, 238, 0.05) 33.333%,
+          rgba(238, 238, 238, 0.05) 66.666%,
+          rgba(32, 32, 32, 0.05) 66.666%,
+          rgba(32, 32, 32, 0.05) 99.999%
+        ),
+        linear-gradient(
+          140deg,
+          rgba(192, 192, 192, 0.05) 0%,
+          rgba(192, 192, 192, 0.05) 33.333%,
+          rgba(109, 109, 109, 0.05) 33.333%,
+          rgba(109, 109, 109, 0.05) 66.666%,
+          rgba(30, 30, 30, 0.05) 66.666%,
+          rgba(30, 30, 30, 0.05) 99.999%
+        ),
+        linear-gradient(
+          189deg,
+          rgba(77, 77, 77, 0.05) 0%,
+          rgba(77, 77, 77, 0.05) 33.333%,
+          rgba(55, 55, 55, 0.05) 33.333%,
+          rgba(55, 55, 55, 0.05) 66.666%,
+          rgba(145, 145, 145, 0.05) 66.666%,
+          rgba(145, 145, 145, 0.05) 99.999%
+        ),
+        linear-gradient(90deg, rgb(9, 201, 186), rgb(18, 131, 221));
+    }
+  </style>
+  
