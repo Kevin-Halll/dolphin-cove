@@ -16,10 +16,10 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     let sql = `INSERT INTO program_events SET ?`
     // let event = req.body
-    let file = req.body.cover;
+    let file = req.files.cover;
     let filePath = "/assets/images/" + file.name;
     // file.mv(filePath);
-    file.mv("/assets/images/" + file.name);
+    file.mv(filePath);
     let event = {
         cover : filePath,
         program : req.body.program,

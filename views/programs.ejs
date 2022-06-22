@@ -45,10 +45,10 @@
 
                         <div class="col-span-2">
                             <label for="appointment_dt" class="text-cyan-600 font-bold">Appointment Date</label>
-                            <input type="date" name="appointment_dt" id="appointment_dt" class="w-full p-1 border outline-none">
+                            <input type="date" name="appointment_dt" id="appointment_dt" class="w-full p-1 border outline-none" min="<%=new Date().toJSON().slice(0, 10).split('-').join('-') %>">
                         </div>
                         <div class="col-span-2 hidden">
-                            <input type="date" name="booked_dt" id="booked_dt" class="w-full p-1 border outline-none" value="<%= new Date().toJSON().slice(0, 10).split('-').join('-') %>">
+                            <input type="date" name="booked_dt" id="booked_dt" class="w-full p-1 border outline-none" value="<%= new Date(Date.now()).toJSON().slice(0, 10).split('-').join('-') %>">
                         </div>
 
                         <div class="col-span-2 mt-1">
@@ -123,11 +123,18 @@
                     <!-- ///////////////////////////////////////////// -->
                 </div>
             </form>
-            <div class="text-center py-5">
+            <div class="next text-center py-5">
                 <button 
                 onclick="eventForm()"
                 id="eventBtn" class="p-4 bg-cyan-600 text-white font-bold w-full flex items-center justify-center gap-3">
                     Choose this Program <i class="fa-solid fa-arrow-right text-xl"></i>
+                </button>
+            </div>
+            <div class="prev text-center py-5 hidden -mt-10">
+                <button 
+                onclick="eventForm()"
+                class="p-4 bg-yellow-600 text-white font-bold w-full flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-arrow-left text-xl"></i> Back to Form
                 </button>
             </div>
             <input type="numbers" name="" id="bcost" value="<%=program.cost %>" hidden>
@@ -150,6 +157,7 @@
     let checkout = document.querySelector('#checkout')
     let checkout2 = document.querySelector('#checkout2')
     let eventBtn = document.querySelector('#eventBtn')
+    let eventBtn2 = document.querySelector('.prev')
     let method = document.querySelector('#method')
     let pay_stats = document.querySelector('#pay_stats')
 
@@ -176,5 +184,7 @@
     function eventForm() {
         checkout.classList.toggle('hidden');
         checkout2.classList.toggle('hidden');
+        eventBtn.classList.toggle('hidden');
+        eventBtn2.classList.toggle('hidden');
     }
 </script>
